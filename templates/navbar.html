@@ -1,0 +1,49 @@
+{% load static %}
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler mx-auto" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item pe-4">
+                    <a href="/" class="nav-link">HOME</a>
+                </li>
+
+                <li class="nav-item pe-4">
+                    <a href="{% url 'about_us' %}" class="nav-link">ABOUT US</a>
+                </li>
+
+                <li class="nav-item dropdown pe-4">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{% url 'cragsite' %}" role="button" aria-expanded="false"> CRAGS</a>
+                    {% for crags in cragsinfo %}
+                    {% if crags.Btn == True %}
+                    <ul class="dropdown-menu dropdown-menu-dark" >
+                        <li><a class="dropdown-item" href="{{ crags.get_absolute_url }}">{{crags.name}}</a></li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                </li>
+
+                <li class="nav-item dropdown pe-4">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{% url 'Beta_videos' %}" role="button"
+                            aria-expanded="false"> BETA</a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="{% url 'Beta_videos' %}">Videos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'Beta_blog' %}">Blog</a></li>
+                            <li><a class="dropdown-item" href="{% url 'Beta_guidebooks' %}">Guidebooks</a></li>
+                        </ul>
+                </li>
+
+            </ul>
+            <form action="{% url 'search_general' %}" class="search-form d-flex ms-2 me-1 mb-2">
+                <input class="form-control me-2" name="k" type="text" placeholder="Search" aria-label="Search" required>
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>

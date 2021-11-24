@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<!-- crags section -->
+<section class="p-1 p-md-3" id="cragsection">
+    <div class="container">
+        <div id="cragsheader">
+            <a href="#" class="cragstitle text-decoration-none text-dark text-center"> 
+                <h3>Crags</h3>
+                <p>Discover the rocks of Panamá - This is a free info collection of the places we have been climbing on for over a decade:</p>
+            </a>
+        </div>
+        
+        <div class="row text-center text-dark" id="cragcards">
+            {% for crags in cragsinfo %}
+            <div class="col-md-4 mb-3">
+                <div class="card bg-warning bg-opacity-75">
+                    <img src="{{crags.image.url}}" class="img-fluid" alt="Acid Rock photo">
+                    <div class="card-body text-center">
+                        {% if crags.Btn == True %}
+                        <h5 class="card-title"><a href="{{ crags.get_absolute_url }}" class="btn btn-danger">{{crags.name}}</a></h5>
+                        {% else %}
+                        <h5 class="card-title"><a href="{{ crags.get_absolute_url }}" class="btn btn-danger disabled">{{crags.name}}</a></h5>
+                        {% endif %}
+                        <p class="card-text">{{crags.location}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    
+            
+        </div>
+    </div>
+
+</section>
+
+{% endblock content %}

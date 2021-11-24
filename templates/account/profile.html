@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-3">
+  <div class="row">
+      <div class="col-lg">
+            <div class="row">
+                 <h3 class="mt-2">Profile page</h3>
+                 <div class="col border">
+                    
+                     <small>{% trans "Username" %}:</small><br>
+                     {{ request.user.username|default:'' }}
+                 </div>
+                 <div class="col border">
+                     <small>{% trans "Email_Address" %}:</small><br>
+                     {{ request.user.email|default:'' }}
+                 </div>
+                 
+             </div>
+             <div>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'account_email' %}">Change E-mail</a>
+
+                    <a href="{% url 'account_logout' %}">Sign Out</a>
+                    {% else %}
+                    <a href="{% url 'account_login' %}">Sign In</a>
+
+                    <a href="{% url 'account_signup' %}">Sign Up</a>
+                    {% endif %}
+                 </div>
+      </div>
+      <div class="col-lg">
+          <article>
+              <div>
+                  <img src="https://res.cloudinary.com/dw8bdbhg0/image/upload/v1637436372/samples/blog/panama_mandala_3d_y5wiya.png"
+                      alt="panama shape" class="img-fluid">
+              </div>
+          </article>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

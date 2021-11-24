@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<!-- crags section -->
+<section class="p-1 p-md-3">
+    <div class="container">
+        <div id="cragsheader">
+            <a href="#" class="cragstitle text-decoration-none text-dark text-center"> 
+                <h3>{{ posts.name }} Gallery</h3>
+            </a>
+        </div>
+        
+        <div class="row text-center text-light" id="cragcards">
+            {% for obj in gallerypics %}
+            {% if obj.crag|stringformat:"s" == posts.name|stringformat:"s" %}
+            <div class="col-md-4 mb-3">
+                <div class="card bg-dark">
+                    <a href="{{ obj.get_absolute_url }}"> <img src="{{obj.image.url}}" class="img-fluid w-100"
+                            alt="Acid Rock photo"></a>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+</section>
+
+{% endblock content %}

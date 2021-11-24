@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<style> .errorlist {display: none;}</style>
+    <div class="container">
+        <div class="row align-items-start justify-content-between">
+    
+      
+    
+            <!-- Article -->
+            <div class="col-lg-9">
+                <div class="main-content mt-3 mb-2">
+            
+                    <article>
+                        
+                            <div>
+                                <h1>{{ posts.title }}</h1>
+                                <h5>{{ posts.timestamp }}</h5>
+                                {% for cat in posts.categories.all %}
+                                    <a href="#" class="text-secondary text-decoration-none me-3">#{{ cat }}</a>
+                                    {% endfor %} 
+                                {{ posts.content | safe }}
+                                <h5>~{{ posts.author }}</h5>
+                            </div>
+                            <div class="text-center">
+                                <img src="{% static 'images/shirt1.png' %}" alt="jungle climb" class="img-fluid w-50">
+                            </div>
+                            <div class="d-flex text-center justify-content-between">
+                                {% if posts.previous_post %}
+                                <a href="{{ posts.previous_post.get_absolute_url }}" class="text-dark text-decoration-none"><i class="bi bi-arrow-left-circle h1"></i>Previous post</a>
+                                {% endif %}
+                                {% if posts.next_post %}
+                                <a href="{{ posts.next_post.get_absolute_url }}" class="text-dark text-decoration-none">Next post<i class="bi bi-arrow-right-circle h1"></i></a>
+                                {% endif %}
+                            </div>
+                    </article>
+                    {% if request.user.is_staff %}
+                    <a href="{% url 'Beta_blog_post_update' posts.id %}">update</a>
+                    <a href="{% url 'Beta_blog_post_delete' posts.id %}">delete</a>
+                    {% endif %}
+                </div>
+            </div>
+    
+    
+            <!-- sidebar_blog -->
+            {% include 'sidebar_blog.html' with category_count=category_count %}
+    
+    
+    
+        </div>
+        <div class="row align-items-start justify-content-between">
+            <div class="col-lg-9">
+                <div class="mt-3 mb-2 border-3 border-top">
+                    <h3>Coments ({{ posts.comments.count}})</h3>
+                    {% if request.user.is_authenticated %}
+                    <form action="." method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit">Comment</button>
+                    </form>
+                    {% else %}
+                    <p>Login to leave a comment:</p>
+                    <a href="{% url 'account_login' %}">Sign In</a>
+                    <a href="{% url 'account_signup' %}">Login</a>
+                    {% endif %}
+                    <div>
+                    {% if not posts.get_comments %}
+                    <h5 class="mt-5 mb-5">No comments available.</h5>
+                    {% else %}
+                        {% for comment in posts.comments.all %}
+                        <h5 class="mt-5">{{ comment.user }}</h5>
+                        <h6>{{ comment.timestamp }} </h6>
+                        <p>{{ comment.content }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock content %}

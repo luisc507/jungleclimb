@@ -1,0 +1,155 @@
+
+nav a {
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: medium;
+}
+
+#landinginfo {
+    font-family: 'Sedgwick Ave Display', cursive;
+    background: radial-gradient(#fff,#ebe1e1);
+}
+
+#carouselExampleCaptions .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 60vh;
+    overflow: hidden;
+}
+
+
+#cragcards .card img{
+    object-fit: cover;
+    object-position: center;
+    height: 36vh;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#crag .card img{
+    object-fit: cover;
+    object-position: center;
+    height: 36vh;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.videowrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#shop img {
+    object-fit: cover;
+    object-position: center;
+    height: 70vh;
+    overflow: hidden;
+}
+
+
+#aboutusimg img {
+    object-fit: cover;
+    object-position: center;
+    height: 48vh;
+}
+
+#shop {
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+
+#cuatrocuatrocards .card img{
+    object-fit: cover;
+    object-position: start;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.main-content a img {
+    object-fit: cover;
+    object-position: center;
+    height: 48vh;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.main-content .btn {
+    margin: 1rem 2rem;
+}
+
+
+
+
+#acidpic img {
+    object-fit: cover;
+    object-position: center;
+    height: 48vh;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+#cragcards .card {
+    border-radius: 20px;
+}
+
+#cragcards .btn {
+    border-radius: 30px;
+}
+
+#sidebarcrags {
+    height: 100%;
+    font-size: medium;
+
+}
+
+#sidebarnav {
+    font-family: 'Sedgwick Ave Display', cursive;
+    text-decoration: beige;
+    color: rgb(228, 228, 228);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+main a {
+    text-decoration: beige;
+    color: beige;
+}
+
+#cragsheader {
+    font-family: 'Sedgwick Ave Display', cursive;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+}
+
+#cragsheader .btn {
+    margin: 1.25rem 2rem;
+    border-radius: 30px;
+}
+
+#cragsection {
+    background: radial-gradient(#fff,#afb6f7);
+}
+
+.container {
+    width: 95%;
+    max-width: 1144px;
+    margin: 0 auto;
+}
+
+footer {
+    font-family: 'Sedgwick Ave Display', cursive;
+}

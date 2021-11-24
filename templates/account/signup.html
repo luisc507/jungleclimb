@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-3">
+  <div class="row">
+    <div class="col-lg">
+      <h1>{% trans "Sign Up" %}</h1>
+
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+      </p>
+
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+      </form>
+    </div>
+      <div class="col-lg">
+        <article>
+            <div>
+                <img src="https://res.cloudinary.com/dw8bdbhg0/image/upload/v1637436372/samples/blog/panama_mandala_3d_y5wiya.png" alt="panama shape" class="img-fluid">
+            </div>
+        </article>
+    </div>
+  </div>
+</div>
+{% endblock %}

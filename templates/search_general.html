@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+{% for post in querysetwo %}
+<div class="container">
+    <div class="row border-top border-3">
+        <div class="col-lg-4">
+            <div class="text-center mt-3">
+                <a href="{{ post.get_absolute_url }}"><img src="{{post.image.url}}" class="img-fluid h-50 mb-1"
+                        alt="image"></a>
+            </div>
+        </div>
+        <div class="col-lg">
+            <div class="p-3">
+                <div class="d-flex">
+                </div>
+                <h3>{{post.name}}</h3>
+                <h6>{{post.date}}</h6>
+                <p>{{post.overview}}</p>
+                <a href="{{ post.get_absolute_url }}">
+                    <h6>Read More...</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    {% empty %}
+    <div class="container mt-2 mb-5">
+        <h3>No results available.</h3>
+    </div>
+
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<style> .errorlist {display: none;}</style>
+<div class="text-center ms-3 me-3">
+    <h1>{{title}}</h1>
+    <form action="." method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit">submit</button>
+    </form>
+</div>
+    
+
+{% endblock content %}    

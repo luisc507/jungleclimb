@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-2 mb-3">
+    <div class="row">
+        <div class="col-lg">
+            <h1>{% trans "Verify Your E-mail Address" %}</h1>
+        
+            <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup
+                process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+        </div>
+        <div class="col-lg">
+            <article>
+                <div>
+                    <img src="https://res.cloudinary.com/dw8bdbhg0/image/upload/v1637436372/samples/blog/panama_mandala_3d_y5wiya.png"
+                        alt="panama shape" class="img-fluid">
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}

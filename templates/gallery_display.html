@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+    
+<!-- gallery display -->
+        <div class="container text-center" id="shop">
+               
+                <img src="{{ posts.image.url }}" class="img-fluid rounded mt-2" alt="Acid Rock photo" >
+                <div class="mt-1">
+                    <h2>{{posts.name}}</h2>
+                    <h5>{{posts.date}}</h5>
+                    {% if posts.description != None %}
+                    <h6>{{posts.description}}</h6>
+                    {% endif %}
+                </div>
+                <div class="d-flex text-center justify-content-center">
+                    {% if posts.previous_post %}
+                    <a href="{{ posts.previous_post.get_absolute_url }}" class="text-dark text-decoration-none"><i class="bi bi-arrow-left-circle h1"></i>Previous post</a>
+                    {% endif %}
+                    <p class="text-light">~|~ </p>
+                    {% if posts.next_post %}
+                    <a href="{{ posts.next_post.get_absolute_url }}" class="text-dark text-decoration-none">Next post<i class="bi bi-arrow-right-circle h1"></i></a>
+                    {% endif %}
+                </div>
+                <div>
+                    {% for crags in cragsinfo %}
+                    {% if crags.name|stringformat:"s" == posts.crag|stringformat:"s" %}
+                    <button class="btn-success btn-lg mt-2 mb-3">
+                        <a href="{% url 'gallery' crags.id %}" class="text-decoration-none text-warning">Back to Gallery</a>
+                    </button>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+        </div>
+    
+    
+    
+{% endblock content %}

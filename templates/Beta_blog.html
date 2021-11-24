@@ -1,0 +1,132 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+    
+        <div class="container">
+            <div class="row align-items-start justify-content-between">
+        
+          
+        
+                <!-- Article -->
+                <div class="col-lg-9">
+                    <div class="main-content mt-1 mb-2">
+                        <article>
+                            <div>
+                                <h1>Blog</h1>
+                            </div>
+                            {% for obj in queryset %}
+                            
+                            <div class="mt-4 mb-2">
+                            {% if forloop.first %}    
+
+                                    
+                                    <div class="text-center">
+                                        <a href="{{ obj.get_absolute_url }}"><img
+                                                src="{{obj.thumbnail.url}}" class="img-fluid w-100 mb-1"
+                                                alt="image"></a>
+                                    
+                                    </div>
+                                    <div class="p-3">
+                                    <div class="d-flex">  
+                                    {% for cat in obj.categories.all %}
+                                    <a href="#" class="text-secondary text-decoration-none me-3">#{{ cat }}</a>
+                                    {% endfor %} 
+                                    </div>     
+                                    <h3>{{obj.title}}</h3>
+                                    <h6>{{obj.timestamp}}</h6>
+                                    <p>{{obj.overview}}</p>
+                                        <a href="{{ obj.get_absolute_url }}"><h6>Read More...</h6></a>
+                                    </div>
+                            {% else %}
+                            <div class="row border-top border-3">
+                                <div class="col-lg-4">
+                                    <div class="text-center mt-3">
+                                        <a href="{{ obj.get_absolute_url }}"><img
+                                                src="{{obj.thumbnail.url}}" class="img-fluid h-50 mb-1"
+                                                alt="image"></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <div class="p-3">
+                                        <div class="d-flex">  
+                                        {% for cat in obj.categories.all %}
+                                        <a href="#" class="text-secondary text-decoration-none me-3">#{{ cat }}</a>
+                                        {% endfor %} 
+                                        </div>     
+                                        <h3>{{obj.title}}</h3>
+                                        <h6>{{obj.timestamp}}</h6>
+                                        <p>{{obj.overview}}</p>
+                                            <a href="{{ obj.get_absolute_url }}"><h6>Read More...</h6></a>
+                                        </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            </div>
+                            
+                            {% endfor %}
+
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar_blog -->
+
+                {% include 'sidebar_blog.html' with category_count=category_count %}
+        
+                
+                   
+                
+            </div>
+            <div class="row align-items-start justify-content-between">
+                <div class="col-lg-9">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-template d-flex justify-content-center">
+                            {% if queryset.has_previous %}
+                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link fs-bold  text-dark"><i class="bi bi-arrow-left h4"></i></a></li>
+                            {% endif %} 
+                            {% if queryset.has_previous %}
+                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link active fs-bold  text-dark ">{{ queryset.previous_page_number }}</a></li>
+                            {% endif %}
+                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.number }}" class="page-link fs-bold  text-dark">{{queryset.number}}</a></li>
+                            {% if queryset.has_next %}
+                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link fs-bold  text-dark">{{ queryset.next_page_number }}</a></li>
+                            {% endif %}
+                            {% if queryset.has_next %}
+                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link fs-bold  text-dark"><i class="bi bi-arrow-right h4"></i></a></li>
+                            {% endif %} 
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {% if request.user.is_staff %}
+            <a href="{% url 'Beta_blog_post_create_cat' %}">create category</a>
+            <a href="{% url 'Beta_blog_post_create' %}">create post</a>
+            {% endif %}
+          </div>
+    
+     <!-- Subscribe -->
+             
+                  
+     <div class="bg-success">
+        <div class="container d-md-flex text-center justify-content-between">                       
+        <h4 class="text-warning mt-2">Subscribe to Our Newsletter</h4>
+        <p class="text-light mt-2 ms-1"> Be the first one to know whats happening in the local climbing scene.</p>
+        <div class="form-holder">
+        <form action="{% url 'Beta_blog' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group text-center d-md-flex mt-2 ms-1">
+                <input type="email" name="email" placeholder="name@email.com" required>
+                <button type="submit" class="submit btn-warning btn-md text-dark">Subscribe</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+
+{% endblock content %}

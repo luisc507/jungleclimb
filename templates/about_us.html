@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+    
+   <div class="container">
+            <div class="row justify-content-between p-5">
+        
+          
+        
+                <!-- Article -->
+                <div class="col-lg">
+                    <div class="main-content mt-1 mb-2">
+                
+                        <article>
+                                    <div>
+                                        <h3>ABOUT US</h3>
+                                        <h6>
+                                            Hi, I'm Luis Carranza, a local climber, who's looking to share some local knowledge. This is for the adventurous climbers who are looking forward to scape the city. I do not own any of
+                                            the
+                                            lands display on this site or take any responsability
+                                            on the user's management of the information in it. Whoever I'm still trying my best to deliver the details
+                                            as
+                                            accurate as possible and work with the landlords for the allowance of climbers in the rocks.<br>
+                                        </h6>
+                                        <h6>
+                                            <br>That said... Respect the access information in each of the sites, keep the places clean and respect the culture...
+                                            Peace.
+                                        </h6>
+                                    </div>
+                                    <div class="mt-5">
+                                        <h3>CONTACT US</h3>
+                                        <h6>If you would like to contribute or edit on any information display on the site please contact us:</h6>
+                                        <div class="mb-3">
+                                            <form action="{% url 'about_us' %}" method="POST">
+                                                {% csrf_token %}
+                                                <div class="form-group text-center d-md-flex mt-2 ms-1">
+                                                    <input type="email" name="emailcontact" placeholder="name@email.com" required>
+                                                </div>
+                                            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="messagecontact" rows="3" placeholder="message"></textarea>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                          </div>
+                                    </div>
+                        </article>
+                    </div>
+                </div>
+        
+        
+        
+                <!-- Panama mandala -->
+                <div class="col-lg">
+                    <article>
+                        <div>
+                            <img src="{% static 'images/panama mandala 3d.png' %}" alt="panama shape" class="img-fluid">
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+      
+        </div>
+    
+{% endblock content %}

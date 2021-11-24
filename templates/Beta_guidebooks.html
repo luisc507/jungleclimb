@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+    
+        <div class="container">
+            <div class="row align-items-start justify-content-between">
+        
+          
+        
+                <!-- Article -->
+                <div class="col-lg-9">
+                    <div class="main-content mt-1 mb-2">
+                
+                        <article>
+                                <div>
+                                    <h1>Guidebooks</h1>
+                                </div>
+                                <div class="mt-4 mb-2">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <h3>Acid Rock</h3>
+                                                <p>For more detailed information about Acid Rock, we invite you to download the free
+                                                    guidebook. This is the first edition of it, dated June 2021. Written by local
+                                                    climbers, Felix Lorgio and Luis Carranza.</p>
+                                                    <button type="button" class="btn btn-outline-warning"><h5><a href="https://drive.google.com/file/d/1pYU_l5JyP_LPiYu5M5KcYS7T4GVEJ22x/view" class="text-decoration-none text-dark">DOWNLOAD
+                                                        SPANISH VERSION HERE</a></h5></button>
+                                            </div>
+                                            <div class="col-lg-6 text-center">
+                                                <div class="container bg-secondary bg-opacity-25 w-75">
+                                                    <a href="https://drive.google.com/file/d/1pYU_l5JyP_LPiYu5M5KcYS7T4GVEJ22x/view"><img src="{% static 'images/PORTADA.jpg' %}"
+                                                            class="img-fluid mb-1" alt="Acid Rock Guidebook Cover"></a>
+                                                    <p class="fst-italic">Acid Rock guidebook cover.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </article>
+                    </div>
+                </div>
+        
+        
+        
+                <!-- Disclaimer -->
+                <div class="col-lg-3">
+                    <article>
+                        <div class="card bg-warning bg-opacity-75 p-2">
+                            <div class="card-body">
+                                <h3 class="card-title text-danger">Disclaimer</h3>
+                                <p class="card-text fw-bold"> Rock climbing is a risky sport. Your safety should not depend on any
+                                    information from this article. The article has been prepared with the aim of offering in
+                                    general
+                                    the most rigorous and reliable information. However, the authors and editors do not
+                                    undertake to
+                                    ensure the accuracy of the information. Therefore, they do not assume responsibility for
+                                    accidents resulting from the use of this publication.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    
+{% endblock content %}

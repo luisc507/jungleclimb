@@ -1,0 +1,20 @@
+<div class="col-lg-3">
+    <aside>
+    <div class="mt-2 border border-secondary rounded">
+        <h3 class="ms-2 me-1 ">Search the Blog</h3>
+        <form action="{% url 'search' %}" class="search-form d-flex ms-2 me-1 mb-2">
+            <input class="form-control me-2" name="q" type="text" placeholder="Search" aria-label="Search" required>
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </div>
+
+    <div class="mt-2 border border-secondary rounded">
+    <h3 class="ms-2 me-1 ">Hashtags</h3>
+    {% for cat in category_count %}
+    <div class="d-flex justify-content-between ms-2 border-top">
+        <p>{{ cat.categories__title }}</p<span>({{ cat.categories__title__count }})</span>
+    </div>
+    {% endfor %}
+    </div>
+    </aside>
+</div>
