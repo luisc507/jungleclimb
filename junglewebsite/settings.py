@@ -41,12 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
     'jungleapp',
     'marketing',
+    'storages',
     'tinymce', 
     'allauth',
     'allauth.account',
@@ -153,9 +153,20 @@ STATICFILES_DIRS = [
 
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/crags')
 
+AWS_ACCESS_KEY_ID=os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=os.environ.get("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL="https://nyc3.digitaloceanspaces.com"
+
+AWS_S3_OBJECT_PARAMETERS={
+    "CacheControl":"max-age=86400",
+}
+AWS_LOCATION=f"https://{AWS_STORAGE_BUCKET_NAME}.nyc3.digitaloceanspaces.com"
+
+DEFAULT_FILE_STORAGE="junglewebsite.cdn.backends.MediaRootS3Boto3Storage"
+STATICFILES_STORAGE="junglewebsite.cdn.backends.StaticRootS3Boto3Storage"
 
  
 # Default primary key field type
