@@ -30,7 +30,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = os.environ.get('SERVERNAMES')
+ALLOWED_HOSTS = os.environ.get('SERVERNAMES').split(' ')
 
 
 # Application definition
