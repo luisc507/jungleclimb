@@ -191,6 +191,10 @@ EMAIL_HOST_PASSWORD=env("EMAIL_HOST_PASSWORD")
 EMAIL_PORT=env("EMAIL_PORT")
 EMAIL_USE_TLS=env("EMAIL_USE_TLS")
 DEFAULT_FROM_EMAIL=env("DEFAULT_FROM_EMAIL")
+SERVER_EMAIL = 'jungleclimbpty@gmail.com'
+ADMINS = [
+        ('luis', 'jungleclimbpty@gmail.com'),
+]
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
