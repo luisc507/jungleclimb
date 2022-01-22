@@ -20,13 +20,14 @@
 
                 <li class="nav-item dropdown pe-4">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{% url 'cragsite' %}" role="button" aria-expanded="false"> CRAGS</a>
-                    {% for crags in cragsinfo %}
-                    {% if crags.Btn == True %}
                     <ul class="dropdown-menu dropdown-menu-dark" >
+                        {% for crags in cragsinfo %}
+                        {% if crags.Btn == True %}
                         <li><a class="dropdown-item" href="{{ crags.get_absolute_url }}">{{crags.name}}</a></li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
-                    {% endif %}
-                    {% endfor %}
+                    
                 </li>
 
                 <li class="nav-item dropdown pe-4">
