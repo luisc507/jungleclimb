@@ -28,7 +28,6 @@ portalocker==2.3.2
 psycopg2-binary==2.9.2
 pycparser==2.21
 PyJWT==2.3.0
-pypiwin32==223
 pyproject_hooks==1.0.0
 python-dateutil==2.8.2
 python3-openid==3.2.0
