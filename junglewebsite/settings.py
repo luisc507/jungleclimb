@@ -96,6 +96,8 @@ WSGI_APPLICATION = 'junglewebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -183,7 +185,7 @@ TINYMCE_DEFAULT_CONFIG = {
 TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = False
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+PSYCOPG_DEBUG=True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST=env("EMAIL_HOST")
 EMAIL_HOST_USER=env("EMAIL_HOST_USER")
