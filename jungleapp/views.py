@@ -104,7 +104,7 @@ def about_us(request):
 
 def crag(request, id):
     cragsinfo = crags.objects.all()
-    sectorpost = sectors.objects.all()
+    sectorpost = sectors.objects.all().order_by('order')
     text = get_object_or_404(crags, id=id)
     form = CommentCragForm(request.POST)
     if request.method == "POST":
@@ -246,7 +246,7 @@ def Beta_videos(request):
 
 def sector(request, id):
     cragsinfo = crags.objects.all()
-    routesinfo = routes.objects.all()
+    routesinfo = routes.objects.all().order_by('order')
     posts = get_object_or_404(sectors, id=id)
     form = CommentSectorForm(request.POST)
 
