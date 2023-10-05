@@ -81,7 +81,7 @@ class grade(models.Model):
 class routes(models.Model):
     route = models.CharField(max_length=100, null=False, blank=False)
     sector_name = models.ForeignKey(sectors, on_delete=models.SET_NULL, null=True, blank=True)
-    order = models.CharField(max_length=10, null=True, blank=True)
+    order = models.IntegerField(max_length=10, null=True, blank=True)
     grade = models.ForeignKey(grade, on_delete=models.SET_NULL, null=True, blank=True)
     topo = models.ImageField(upload_to="post/", null=True, blank=True)
     commentary = models.CharField(max_length=500, null=True, blank=True)
