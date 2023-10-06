@@ -13,6 +13,7 @@ class crags(models.Model):
     image = models.ImageField(upload_to="post/", null=False, blank=False)
     location = models.CharField(max_length=500, null=False, blank=False)
     Btn = models.BooleanField()
+    Btn_sector = models.BooleanField(null=True, blank=True)
     overview = models.CharField(max_length=500, null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     content = tinymce_models.HTMLField(null=True, blank=True)
