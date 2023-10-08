@@ -48,7 +48,7 @@ class dificulty(models.Model):
 
 class sectors(models.Model):
     sector_name = models.CharField(max_length=100, null=False, blank=False)
-    order = models.CharField(max_length=100, null=True, blank=True)
+    order = models.IntegerField(null=True, blank=True)
     crag = models.ForeignKey(crags, on_delete=models.SET_NULL, null=True, blank=True)
     image = models.ImageField(upload_to="post/", null=True, blank=True)
     overview = models.CharField(max_length=500, null=True, blank=True)
@@ -82,7 +82,7 @@ class grade(models.Model):
 class routes(models.Model):
     route = models.CharField(max_length=100, null=False, blank=False)
     sector_name = models.ForeignKey(sectors, on_delete=models.SET_NULL, null=True, blank=True)
-    order = models.CharField(max_length=100, null=True, blank=True)
+    order = models.IntegerField(null=True, blank=True)
     grade = models.ForeignKey(grade, on_delete=models.SET_NULL, null=True, blank=True)
     topo = models.ImageField(upload_to="post/", null=True, blank=True)
     commentary = models.CharField(max_length=500, null=True, blank=True)
