@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+import warnings
+
+warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base" )
 
 env = environ.Env(
     DEBUG=(bool, False)
