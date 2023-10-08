@@ -74,6 +74,9 @@
             </div>
             <div class="row align-items-start justify-content-between">
                 <div class="col-lg-9">
+                    <div>
+                        <img src="{% static 'images/feedback.png' %}" class="img-fluid w-100" alt="rock">
+                    </div>
                     <div class="mt-3 mb-2 border-3 border-top">
                         <h3>Coments ({{ posts.commentsector.count}})</h3>
                         {% if request.user.is_authenticated %}
