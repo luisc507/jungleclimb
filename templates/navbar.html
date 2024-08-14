@@ -14,10 +14,6 @@
                     <a href="/" class="nav-link">HOME</a>
                 </li>
 
-                <li class="nav-item pe-4">
-                    <a href="{% url 'about_us' %}" class="nav-link">ABOUT US</a>
-                </li>
-
                 <li class="nav-item dropdown pe-4">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{% url 'cragsite' %}" role="button" aria-expanded="false"> CRAGS</a>
                     <ul class="dropdown-menu dropdown-menu-dark" >
@@ -30,14 +26,12 @@
                     
                 </li>
 
-                <li class="nav-item dropdown pe-4">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{% url 'Beta_videos' %}" role="button"
-                            aria-expanded="false"> BETA</a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="{% url 'Beta_videos' %}">Videos</a></li>
-                            <li><a class="dropdown-item" href="{% url 'Beta_blog' %}">Blog</a></li>
-                            <li><a class="dropdown-item" href="{% url 'Beta_guidebooks' %}">Guidebooks</a></li>
-                        </ul>
+                <li class="nav-item pe-4">
+                    <a href="{% url 'Beta_blog' %}" class="nav-link">BLOG</a>
+                </li>
+
+                <li class="nav-item pe-4">
+                    <a href="{% url 'about_us' %}" class="nav-link">ABOUT US</a>
                 </li>
 
             </ul>
